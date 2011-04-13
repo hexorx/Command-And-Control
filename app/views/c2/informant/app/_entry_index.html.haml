@@ -1,0 +1,24 @@
+%script{ :'data-template' => 'entryIndex', :type => 'text/js-template' }
+  .header
+    %h1
+      %span.type <%= entries.parent.index_label() %>
+      %strong <%= entries.locus().escape('label') %>
+    .toolbar
+      .edit.pictos-text= link_to('Edit', '#', :class => 'flip-trigger')
+      .edit.pictos-icon= link_to('p', '#', :class => 'flip-trigger')
+  .body
+    #items
+      %ul.block-list.entries
+        <% entries.each(function(entry) { %>
+        %li.entry.item
+          %h3
+            :plain
+              <a href="<%= entry.hash_path() %>/edit" class="title" title="edit “<%= entry.label() %>”"><%= entry.label() %></a>
+          <% if (entry.get('updated_at')) { %>
+          %dl.meta
+            %dt.date Updated
+            %dd.date
+              :plain
+                <abbr class="timeago" title="<%= entry.get('updated_at') %>"><%= entry.get('updated_at') %></abbr>
+          <% } %>
+        <% }); %>

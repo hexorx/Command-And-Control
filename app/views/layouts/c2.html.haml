@@ -1,0 +1,52 @@
+!!!
+%head
+  = stylesheet_link_tag 'compiled/c2'
+  = javascript_include_tag 'c2/lib/LAB.min'
+  = yield :head
+      
+%body.pictos-icons.lab
+  #templates
+    = yield :templates
+  #wrapper
+    #header-wrapper
+      %header#header
+        %h1= link_to('Command & Control', '#')
+        %h2=# link_to('Version 0.0.1', '#', :class => 'preview')
+        .url= link_to('Control Yourself!', '#', :class => 'external-link')
+        %ul.links
+          %li
+            %strong#user-name.dropdown-trigger Josh Robinson
+            %ul.dropdown.menu
+              %li= link_to('My profile', '#')
+              %li= link_to('My account', '#')
+              %li= link_to('Log out', '#')
+          %li= link_to('Help & Feedback', '#', :id => 'support-link')
+          %li= link_to('Flip', '#', :class => 'back flip-trigger')
+          
+        %nav
+          %ul
+            %li.informant.current.tab= link_to('Informant', c2_informant_app_path)
+            %li.reports.tab= link_to('Reporter', '#')
+        
+    #main-wrapper
+      #sidebar-wrapper
+        #sidebar
+          = yield :sidebar
+      #main-content
+        #notices
+          = yield :notices
+        #app-wrapper
+          #app
+            #app-front.sheet
+              = yield
+            #app-back.sheet
+              = yield :back
+      #aside-wrapper
+        #aside
+          = yield :aside
+      #footer-wrapper
+        #footer
+          = yield :footer
+          
+    
+    

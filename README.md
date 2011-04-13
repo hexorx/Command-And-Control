@@ -1,6 +1,6 @@
-= self-control
+= c2
 
-Description goes here.
+Command & Control
 
 == Note on Patches/Pull Requests
  
