@@ -3,7 +3,7 @@
   %title= params[:controller].split('/').map(&:titleize).join(' ')
   = csrf_meta_tag  
 
-  %link{ :rel => 'stylesheet', :href => '/stylesheets/compiled/c2.css', :type => 'text/css', :media => 'screen', :charset => 'utf-8' }
+  %link{ :rel => 'stylesheet', :href => '/stylesheets/c2.css', :type => 'text/css', :media => 'screen', :charset => 'utf-8' }
   %script{:src => '/javascripts/c2/lib/Sexy.min.js', :type => 'text/javascript'}
 
   = yield :head
