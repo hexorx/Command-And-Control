@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{c2}
-  s.version = "0.0.0"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["hexorx"]
-  s.date = %q{2011-04-08}
+  s.date = %q{2011-04-15}
   s.description = %q{ C2 aspires to be a simple, drop in, Admin Portal + CMS for apps based on Rails 3 + Mongoid. }
   s.email = %q{hexorx@gmail.com}
   s.extra_rdoc_files = [
@@ -19,15 +19,27 @@ Gem::Specification.new do |s|
   s.files = [
     "app/controllers/c2/base_controller.rb",
     "app/controllers/c2/informant/app_controller.rb",
+    "app/controllers/c2/informant/buckets_controller.rb",
+    "app/controllers/c2/informant/entries_controller.rb",
     "app/controllers/c2/informant/locus_controller.rb",
+    "app/models/c2/informant/bucket.rb",
+    "app/models/c2/informant/form_element.rb",
     "app/models/c2/informant/locus.rb",
-    "app/views/c2/informant/app/_index.html.haml",
+    "app/stylesheets/c2.scss",
+    "app/views/c2/informant/app/_entry_index.html.haml",
+    "app/views/c2/informant/app/_entry_index_aside.html.haml",
+    "app/views/c2/informant/app/_sidebar.html.haml",
     "app/views/c2/informant/app/show.html.haml",
     "app/views/layouts/c2.html.haml",
+    "config/initializers/c2_inflections.rb",
     "config/mongoid.yml",
     "config/routes.rb",
     "lib/c2.rb",
-    "lib/c2/engine.rb"
+    "lib/c2/controller_additions.rb",
+    "lib/c2/engine.rb",
+    "lib/c2/exceptions.rb",
+    "lib/c2/tasks.rake",
+    "lib/generators/c2/install_generator.rb"
   ]
   s.homepage = %q{http://github.com/hexorx/c2}
   s.require_paths = ["lib"]
@@ -45,23 +57,23 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<rails>, [">= 3.0.0"])
       s.add_runtime_dependency(%q<mongoid>, ["= 2.0.0.rc.7"])
       s.add_runtime_dependency(%q<bson_ext>, ["= 1.2.4"])
+      s.add_runtime_dependency(%q<haml>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
-      s.add_development_dependency(%q<rspec>, [">= 0"])
       s.add_development_dependency(%q<rspec>, [">= 0"])
     else
       s.add_dependency(%q<rails>, [">= 3.0.0"])
       s.add_dependency(%q<mongoid>, ["= 2.0.0.rc.7"])
       s.add_dependency(%q<bson_ext>, ["= 1.2.4"])
+      s.add_dependency(%q<haml>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
-      s.add_dependency(%q<rspec>, [">= 0"])
       s.add_dependency(%q<rspec>, [">= 0"])
     end
   else
     s.add_dependency(%q<rails>, [">= 3.0.0"])
     s.add_dependency(%q<mongoid>, ["= 2.0.0.rc.7"])
     s.add_dependency(%q<bson_ext>, ["= 1.2.4"])
+    s.add_dependency(%q<haml>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
-    s.add_dependency(%q<rspec>, [">= 0"])
     s.add_dependency(%q<rspec>, [">= 0"])
   end
 end
