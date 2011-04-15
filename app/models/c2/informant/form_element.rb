@@ -12,6 +12,8 @@ class C2::Informant::FormElement
   
   scope :enabled, :where => { :enabled => true }
   
+  delegate :klass, :to => :'_parent'
+  
   def as_json(options={})
     {
       'type' => 'div',
@@ -23,7 +25,7 @@ class C2::Informant::FormElement
           'name' => name,
           'id' => "entry_#{name}",
           'class' => "#{name}_input #{tag}",
-          'caption' => caption          
+          'caption' => (caption || name.titleize)
         },
         {
           'type' => 'div',

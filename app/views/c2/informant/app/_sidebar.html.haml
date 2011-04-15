@@ -1,7 +1,7 @@
 %script{ :'data-template' => 'sidebar', :type => 'text/js-template' }
   %nav#sitemap.sitemap
     .header
-      %h3.current= link_to('Locus of Control', '#')
+      %h3= link_to('Locus of Control', '#/')
     .body.tree
       <% collection.each(function(locus) { %>
       %ul

@@ -2,7 +2,7 @@ class C2::Informant::LocusController < C2::BaseController
   respond_to(:json)
   
   def index
-    respond_with(@locus = C2::Informant::Locus.all)
+    respond_with(@locus = C2::Informant::Locus.all.order(:class_name => :asc))
   end
   
   def update

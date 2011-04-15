@@ -13,12 +13,20 @@ class C2::Informant::Locus
   
   delegate :count, :to => :klass
   
+  validate :class_name, :presences => true, :unique => true
+    
   def label
-    self[:label] || self.class_name.pluralize.titleize
+    return self[:label] || '' unless self.class_name
+    self[:label] ||= self.class_name.pluralize.titleize
+  end
+  
+  def singular_label
+    label.to_s.singularize
   end
     
   def entry_label
-    self[:entry_label] || ([:c2_label, :entry_label, :to_label, :label, :title, :name, :email].map(&:to_s) & klass.instance_methods).first
+    return self[:entry_label] || '' unless self.class_name
+    self[:entry_label] ||= ([:c2_label, :entry_label, :to_label, :label, :title, :name, :email, :subject].map(&:to_s) & klass.instance_methods).first
   end
     
   def klass
@@ -30,17 +38,31 @@ class C2::Informant::Locus
   end
     
   def entries_page(page=1,per=10)
-    entries.offset((page - 1) * per).limit(per).map do |entry|
-      data = elements.inject({}) do |memo, element|
-        memo[element.name] = entry.send(element.name) if entry.respond_to?(element.name)
-        memo
-      end
-      data['_id'] = entry['_id']
-      data['created_at'] = entry['created_at']
-      data['updated_at'] = entry['updated_at']
-      data[entry_label] = entry[entry_label] 
-      data
+    entries_as_json(entries.offset((page - 1) * per).limit(per))
+  end
+  
+  def entry_as_json(entry)
+    data = self.elements.inject({}) do |memo, element|
+      memo[element.name] = entry.send(element.name) if entry.respond_to?(element.name)
+      memo
     end
+    data['_id'] = entry['_id']
+    data[entry_label] = entry[entry_label]
+    data['created_at'] = entry['created_at']
+    data['updated_at'] = entry['updated_at']
+    data['errors'] = entry.errors
+    data
+  end
+  
+  def entries_as_json(entries)
+    entries.map { |entry| self.entry_as_json(entry) }
+  end
+
+  def sanitized(params)
+    self.elements.enabled.map(&:name).inject({}) do |memo, field|
+      memo[field] = params[field]
+      memo
+    end        
   end
   
   def hash_path
@@ -61,11 +83,11 @@ class C2::Informant::Locus
           'type' => 'div',
           'class' => 'actions',
           'elements' => [
-            {'type' => 'submit', 'class' => '.button', 'value' => 'Save'},
+            {'type' => 'submit', 'class' => 'button', 'value' => 'Save'},
             {
               'type' => 'a',
-              'class' => 'cancel',
-              'href' => "#{hash_path}/entries",
+              'class' => 'cancel flip-trigger',
+              'href' => "#",
               'html' => 'Cancel'
             }
           ]
@@ -76,7 +98,7 @@ class C2::Informant::Locus
 
   def as_json(options={})
     cleaned = super((options || {}).merge({
-      :methods => [:count, :buckets, :entry_label, :entries_page, :entry_form_builder]
+      :methods => [:count, :buckets, :label, :singular_label, :entry_label, :entries_page, :entry_form_builder]
     })).map {|k,v| [k.to_s, (v.is_a?(Numeric) ? v.to_s : v)]}
     Hash[cleaned]
   end

@@ -1,10 +1,14 @@
 !!!
 %head
-  = stylesheet_link_tag 'compiled/c2'
-  = javascript_include_tag 'c2/lib/LAB.min'
+  %title= params[:controller].split('/').map(&:titleize).join(' ')
+  = csrf_meta_tag  
+
+  %link{ :rel => 'stylesheet', :href => '/stylesheets/compiled/c2.css', :type => 'text/css', :media => 'screen', :charset => 'utf-8' }
+  %script{:src => '/javascripts/c2/lib/Sexy.min.js', :type => 'text/javascript'}
+
   = yield :head
       
-%body.pictos-icons.lab
+%body.pictos-icons
   #templates
     = yield :templates
   #wrapper
@@ -15,7 +19,7 @@
         .url= link_to('Control Yourself!', '#', :class => 'external-link')
         %ul.links
           %li
-            %strong#user-name.dropdown-trigger Josh Robinson
+            %strong#user-name.dropdown-trigger= current_c2_agent_title
             %ul.dropdown.menu
               %li= link_to('My profile', '#')
               %li= link_to('My account', '#')

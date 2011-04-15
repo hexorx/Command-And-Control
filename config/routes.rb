@@ -3,6 +3,7 @@ Rails.application.routes.draw do |map|
     namespace :informant do
       get '/', :to => 'app#show', :as => :app
       resources :locus, :only => [:index, :create, :update] do
+        resources :entries
         resources :buckets do
           resources :entries
         end

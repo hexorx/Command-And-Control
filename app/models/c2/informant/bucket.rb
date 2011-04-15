@@ -9,7 +9,9 @@ class C2::Informant::Bucket
   embedded_in :locus, :class_name => 'C2::Informant::Locus'
   
   delegate :count, :to => :entries
-  delegate :elements, :entry_label, :to => :locus
+  delegate :elements, :entry_label, :sanitized, :to => :locus
+  
+  validate :method_name, :presences => true, :unique => true
   
   def label
     self[:label] || self.method_name.titleize

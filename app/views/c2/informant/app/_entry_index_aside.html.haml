@@ -1,0 +1,7 @@
+%script{ :'data-template' => 'entryIndexAside', :type => 'text/js-template' }
+  %aside.call-to-action.new-entry
+    .body
+      :plain
+        <a class="button" href="<%= entries.newPath() %>">
+          <strong>Add a new entry</strong>
+        </a>

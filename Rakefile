@@ -10,8 +10,7 @@ begin
     gem.files = Dir["{lib}/**/*", "{app}/**/*", "{config}/**/*"]
     gem.email = "hexorx@gmail.com"
     gem.homepage = "http://github.com/hexorx/c2"
-    gem.authors = ["hexorx"]
-    gem.add_development_dependency "rspec"
+    gem.authors = ["hexorx"]    
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError

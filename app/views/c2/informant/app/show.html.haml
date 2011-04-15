@@ -3,9 +3,6 @@
     %h1
       %span.type Home
       %strong Overview
-    .toolbar
-      .edit.pictos-text= link_to('Edit', '#', :class => 'flip-trigger')
-      .edit.pictos-icon= link_to('p', '#', :class => 'flip-trigger')
   .body
 
 = content_for :back do
@@ -14,9 +11,6 @@
       %h1
         %span.type Editing
         %strong Overview
-      .toolbar
-        .cancel.pictos-text= link_to('Cancel', '#', :class => 'flip-trigger')
-        .cancel.pictos-icon= link_to('*', '#', :class => 'flip-trigger')      
     .body
       %form#entry
 
@@ -28,8 +22,9 @@
 
 = content_for :head do  
   :javascript
-    $LAB.script('/javascripts/c2/informant/init.js');
+    Sexy.script('/javascripts/c2/informant/init.js');
 
 = content_for :templates do
   = render 'entry_index'
+  = render 'entry_index_aside'
   = render 'sidebar'
