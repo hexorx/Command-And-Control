@@ -9,7 +9,7 @@ begin
     gem.description = %Q{ C2 aspires to be a simple, drop in, Admin Portal + CMS for apps based on Rails 3 + Mongoid. }
     gem.files = Dir["{lib}/**/*", "{app}/**/*", "{config}/**/*", "{public}/**/*"]
     gem.email = "hexorx@gmail.com"
-    gem.homepage = "http://github.com/hexorx/c2"
+    gem.homepage = "http://crackersnack.com/Command-And-Control"
     gem.authors = ["hexorx"]    
   end
   Jeweler::GemcutterTasks.new
