@@ -22,6 +22,12 @@ Sexy
 .js(app_dir + 'collections/buckets.js')
 .js(app_dir + 'collections/entries.js', function() {
   $(function() {
+    // CSRF Load
+    $(document).ajaxSend(function(e, xhr, options) {
+      var token = $("meta[name='csrf-token']").attr("content");
+      xhr.setRequestHeader("X-CSRF-Token", token);
+    });
+    
     window.location.hash = '/';
 
     // Get a Backbone
