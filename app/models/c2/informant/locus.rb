@@ -25,7 +25,7 @@ class C2::Informant::Locus
   end
     
   def entry_label
-    return self[:entry_label] || '' unless self.class_name
+    return self[:entry_label] || '' unless self.entry_label
     self[:entry_label] ||= ([:c2_label, :entry_label, :to_label, :label, :title, :name, :email, :subject].map(&:to_s) & klass.instance_methods).first
   end
     
