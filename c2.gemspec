@@ -104,6 +104,7 @@ Gem::Specification.new do |s|
     "spec/dummy/test/performance/browsing_test.rb",
     "spec/dummy/test/test_helper.rb",
     "spec/fabricators/locus_fabricator.rb",
+    "spec/fabricators/user_fabricator.rb",
     "spec/models/locus_spec.rb",
     "spec/spec_helper.rb"
   ]
