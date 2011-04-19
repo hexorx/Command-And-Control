@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["hexorx"]
-  s.date = %q{2011-04-17}
+  s.date = %q{2011-04-19}
   s.description = %q{ C2 aspires to be a simple, drop in, Admin Portal + CMS for apps based on Rails 3 + Mongoid. }
   s.email = %q{hexorx@gmail.com}
   s.extra_rdoc_files = [
@@ -85,7 +85,26 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.6.2}
   s.summary = %q{Take control of your Rails 3 and Mongoid based site with the Comand & Control Admin Portal + CMS.}
   s.test_files = [
-    "spec/c2_spec.rb",
+    "spec/dummy/app/controllers/application_controller.rb",
+    "spec/dummy/app/helpers/application_helper.rb",
+    "spec/dummy/app/models/user.rb",
+    "spec/dummy/config/application.rb",
+    "spec/dummy/config/boot.rb",
+    "spec/dummy/config/environment.rb",
+    "spec/dummy/config/environments/development.rb",
+    "spec/dummy/config/environments/production.rb",
+    "spec/dummy/config/environments/test.rb",
+    "spec/dummy/config/initializers/backtrace_silencers.rb",
+    "spec/dummy/config/initializers/inflections.rb",
+    "spec/dummy/config/initializers/mime_types.rb",
+    "spec/dummy/config/initializers/secret_token.rb",
+    "spec/dummy/config/initializers/session_store.rb",
+    "spec/dummy/config/routes.rb",
+    "spec/dummy/db/seeds.rb",
+    "spec/dummy/test/performance/browsing_test.rb",
+    "spec/dummy/test/test_helper.rb",
+    "spec/fabricators/locus_fabricator.rb",
+    "spec/models/locus_spec.rb",
     "spec/spec_helper.rb"
   ]
 
