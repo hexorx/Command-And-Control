@@ -1,12 +1,9 @@
-$LOAD_PATH.unshift(File.dirname(__FILE__))
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+ENV["RAILS_ENV"] ||= 'test'
 
-require 'bundler'
-require 'c2'
+require File.expand_path("../dummy/config/environment.rb",  __FILE__)
+require 'rspec/rails'
 
-Bundler.require(:default, :test) if defined?(Bundler)
-
-mongoid_file = File.join(File.dirname(__FILE__), "..", "config", "mongoid.yml")
+mongoid_file = File.join(File.dirname(__FILE__), "dummy", "config", "mongoid.yml")
 @settings = YAML.load(ERB.new(File.new(mongoid_file).read).result)
 
 Mongoid.configure do |config|
@@ -14,7 +11,6 @@ Mongoid.configure do |config|
 end
 
 RSpec.configure do |config|
-  config.include Devise::TestHelpers, :type => :controller
   config.mock_with :rspec
     
   config.after :suite do

@@ -10,3 +10,7 @@ group :development do
   gem 'jeweler'
   gem 'rspec'
 end
+
+group :test do
+  gem 'rspec-rails'
+end

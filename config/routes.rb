@@ -1,4 +1,4 @@
-Rails.application.routes.draw do |map|
+Rails.application.routes.draw do
   namespace :c2 do
     namespace :informant do
       get '/', :to => 'app#show', :as => :app
