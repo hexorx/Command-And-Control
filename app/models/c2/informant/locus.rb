@@ -47,7 +47,7 @@ class C2::Informant::Locus
       memo
     end
     data['_id'] = entry['_id']
-    data[entry_label] = entry.send(entry_label) if entry.respond_to?(entry_label)
+    data[entry_label] = entry.send(entry_label) if entry_label && entry.respond_to?(entry_label)
     data['created_at'] = entry['created_at']
     data['updated_at'] = entry['updated_at']
     data['errors'] = entry.errors

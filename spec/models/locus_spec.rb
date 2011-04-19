@@ -25,6 +25,11 @@ describe C2::Informant::Locus do
       label = locus.entry_as_json(user)['c2_title']
       label.should == user.c2_title
     end
+    
+    it 'should return nil when json if no entry_label is found' do      
+      label = locus.entry_as_json(user)[locus.entry_label]
+      label.should be_nil
+    end
   end
 
 end
