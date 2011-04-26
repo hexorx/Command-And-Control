@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{c2}
-  s.version = "0.1.4"
+  s.version = "0.1.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["hexorx"]
-  s.date = %q{2011-04-19}
+  s.date = %q{2011-04-26}
   s.description = %q{ C2 aspires to be a simple, drop in, Admin Portal + CMS for apps based on Rails 3 + Mongoid. }
   s.email = %q{hexorx@gmail.com}
   s.extra_rdoc_files = [
