@@ -31,5 +31,19 @@ describe C2::Informant::Locus do
       label.should be_nil
     end
   end
+  
+  describe '#entries_page' do
+    before(:all) do
+      20.times {|| Fabricate(:user) }
+    end
+    
+    it 'should return all entries' do
+      locus.entries_page.size.should == 21
+      Fabricate(:user)
+      locus.entries_page.size.should == 22
+      locus.entries.last.destroy
+      locus.entries_page.size.should == 21
+    end
+  end
 
 end

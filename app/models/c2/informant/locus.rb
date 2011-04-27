@@ -38,7 +38,7 @@ class C2::Informant::Locus
   end
     
   def entries_page(page=1,per=10)
-    entries_as_json(entries.offset((page - 1) * per).limit(per))
+    entries_as_json(entries)
   end
   
   def entry_as_json(entry)
