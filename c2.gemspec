@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{c2}
-  s.version = "0.1.6"
+  s.version = "0.1.7"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["hexorx"]
-  s.date = %q{2011-04-27}
+  s.authors = [%q{hexorx}]
+  s.date = %q{2011-08-12}
   s.description = %q{ C2 aspires to be a simple, drop in, Admin Portal + CMS for apps based on Rails 3 + Mongoid. }
   s.email = %q{hexorx@gmail.com}
   s.extra_rdoc_files = [
@@ -81,8 +81,8 @@ Gem::Specification.new do |s|
     "public/stylesheets/c2.css"
   ]
   s.homepage = %q{http://crackersnack.com/Command-And-Control}
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.6.2}
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.6}
   s.summary = %q{Take control of your Rails 3 and Mongoid based site with the Comand & Control Admin Portal + CMS.}
   s.test_files = [
     "spec/dummy/app/controllers/application_controller.rb",
