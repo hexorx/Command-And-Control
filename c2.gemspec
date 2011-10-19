@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{c2}
-  s.version = "0.1.7"
+  s.name = "c2"
+  s.version = "0.1.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{hexorx}]
-  s.date = %q{2011-08-12}
-  s.description = %q{ C2 aspires to be a simple, drop in, Admin Portal + CMS for apps based on Rails 3 + Mongoid. }
-  s.email = %q{hexorx@gmail.com}
+  s.authors = ["hexorx"]
+  s.date = "2011-10-19"
+  s.description = " C2 aspires to be a simple, drop in, Admin Portal + CMS for apps based on Rails 3 + Mongoid. "
+  s.email = "hexorx@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE",
     "README.md"
@@ -80,10 +80,10 @@ Gem::Specification.new do |s|
     "public/javascripts/c2/lib/underscore.min.js",
     "public/stylesheets/c2.css"
   ]
-  s.homepage = %q{http://crackersnack.com/Command-And-Control}
-  s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.6}
-  s.summary = %q{Take control of your Rails 3 and Mongoid based site with the Comand & Control Admin Portal + CMS.}
+  s.homepage = "http://crackersnack.com/Command-And-Control"
+  s.require_paths = ["lib"]
+  s.rubygems_version = "1.8.10"
+  s.summary = "Take control of your Rails 3 and Mongoid based site with the Comand & Control Admin Portal + CMS."
   s.test_files = [
     "spec/dummy/app/controllers/application_controller.rb",
     "spec/dummy/app/helpers/application_helper.rb",
