@@ -16,8 +16,8 @@ class C2::Informant::Locus
   validate :class_name, :presences => true, :unique => true
     
   def label
-    return self[:label] || '' unless self.class_name
-    self[:label] ||= self.class_name.pluralize.titleize
+    return self[:label_cache] || '' unless self.class_name
+    self[:label_cache] ||= self.class_name.pluralize.titleize
   end
   
   def singular_label
@@ -25,8 +25,12 @@ class C2::Informant::Locus
   end
     
   def entry_label
-    return self[:entry_label] || '' unless self.class_name
-    self[:entry_label] ||= ([:c2_label, :entry_label, :to_label, :label, :title, :name, :email, :subject].map(&:to_s) & klass.instance_methods).first
+    return self[:entry_label_cache] || '' unless self.class_name
+    self[:entry_label_cache] ||= ([:c2_label, :entry_label, :to_label, :label, :title, :name, :email, :subject].map(&:to_s) & klass.instance_methods).first
+  end
+  
+  def entry_label=(value)
+    self[:entry_label_cache] = value
   end
     
   def klass

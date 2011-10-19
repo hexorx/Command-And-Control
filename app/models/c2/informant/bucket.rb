@@ -23,7 +23,8 @@ class C2::Informant::Bucket
   end
   
   def entries_page(page=1,per=10)
-    entries.offset((page - 1) * per).limit(per).map do |entry|
+    # entries.offset((page - 1) * per).limit(per).map do |entry|
+    entries.map do |entry|
       data = elements.enabled.inject({}) do |memo, element|
         memo[element.name] = entry.send(element.name) if entry.respond_to?(element.name)
         memo

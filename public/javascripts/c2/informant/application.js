@@ -11,25 +11,3 @@ var Informant = {
     });
   }
 };
-
-var Locus = {
-  label: 'Users',
-  path: 'users',
-  scopes: 'ScopeList',
-  attributes: 'AttributeList'
-};
-
-var Attribute = {
-  label: 'fu',
-  template: 'string'
-};
-
-var Scope = {
-  label: 'Active',
-  path: 'active',
-  entries: 'EntryList'
-};
-
-var Entry = {
-  fu: 'bar',
-};
