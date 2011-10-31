@@ -54,7 +54,7 @@ class C2::Reporter::Bucket
     end
     @series.map do |key,value|
       value[:start] = started_at.to_date
-      value[:pointStart] = started_at.to_i
+      value[:pointStart] = started_at.to_i * 1000
       value[:end] = Date.today
       value[:data] = (value[:start]..value[:end]).map { |d| @series_cache[key][d] }
     end
