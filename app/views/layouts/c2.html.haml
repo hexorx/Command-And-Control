@@ -18,19 +18,14 @@
         %h2=# link_to('Version 0.0.1', '#', :class => 'preview')
         .url= link_to('Control Yourself!', '#', :class => 'external-link')
         %ul.links
-          %li
-            %strong#user-name.dropdown-trigger= current_c2_agent_title
-            %ul.dropdown.menu
-              %li= link_to('My profile', '#')
-              %li= link_to('My account', '#')
-              %li= link_to('Log out', '#')
-          %li= link_to('Help & Feedback', '#', :id => 'support-link')
-          %li= link_to('Flip', '#', :class => 'back flip-trigger')
+          %li#user-name= link_to(current_c2_agent_title, '#')
+          %li=# link_to('Help & Feedback', '#', :id => 'support-link')
+          %li=# link_to('Flip', '#', :class => 'back flip-trigger')
           
         %nav
           %ul
-            %li.informant.current.tab= link_to('Informant', c2_informant_app_path)
-            %li.reports.tab= link_to('Reporter', '#')
+            %li.informant.tab{:class => "#{params[:controller] == 'c2/informant/app' ? 'current' : '' }"}= link_to('Informant', c2_informant_app_path)
+            %li.reports.tab{:class => "#{params[:controller] == 'c2/reporter/app' ? 'current' : '' }"}= link_to('Reporter', c2_reporter_app_path)
         
     #main-wrapper
       #sidebar-wrapper
