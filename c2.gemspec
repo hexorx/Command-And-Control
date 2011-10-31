@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "c2"
-  s.version = "0.1.8"
+  s.version = "0.1.9"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["hexorx"]
-  s.date = "2011-10-19"
+  s.date = "2011-10-31"
   s.description = " C2 aspires to be a simple, drop in, Admin Portal + CMS for apps based on Rails 3 + Mongoid. "
   s.email = "hexorx@gmail.com"
   s.extra_rdoc_files = [
@@ -22,14 +22,19 @@ Gem::Specification.new do |s|
     "app/controllers/c2/informant/buckets_controller.rb",
     "app/controllers/c2/informant/entries_controller.rb",
     "app/controllers/c2/informant/locus_controller.rb",
+    "app/controllers/c2/reporter/app_controller.rb",
     "app/models/c2/informant/bucket.rb",
     "app/models/c2/informant/form_element.rb",
     "app/models/c2/informant/locus.rb",
+    "app/models/c2/reporter/bucket.rb",
+    "app/models/c2/reporter/report.rb",
     "app/stylesheets/c2.scss",
     "app/views/c2/informant/app/_entry_index.html.haml",
     "app/views/c2/informant/app/_entry_index_aside.html.haml",
     "app/views/c2/informant/app/_sidebar.html.haml",
     "app/views/c2/informant/app/show.html.haml",
+    "app/views/c2/reporter/app/_sidebar.html.haml",
+    "app/views/c2/reporter/app/show.html.haml",
     "app/views/layouts/c2.html.haml",
     "config/initializers/c2_inflections.rb",
     "config/mongoid.yml",
@@ -70,6 +75,7 @@ Gem::Specification.new do |s|
     "public/javascripts/c2/informant/views/sidebar.js",
     "public/javascripts/c2/lib/Sexy.min.js",
     "public/javascripts/c2/lib/backbone-min.js",
+    "public/javascripts/c2/lib/grid.js",
     "public/javascripts/c2/lib/jquery.Sexy.min.js",
     "public/javascripts/c2/lib/jquery.activity-indicator-1.0.0.min.js",
     "public/javascripts/c2/lib/jquery.ba-dotimeout.min.js",
