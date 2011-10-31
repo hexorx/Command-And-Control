@@ -9,5 +9,8 @@ Rails.application.routes.draw do
         end
       end
     end
+    namespace :reporter do
+      get '/', :to => 'app#show', :as => :app
+    end
   end
 end

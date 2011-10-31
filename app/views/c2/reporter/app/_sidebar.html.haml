@@ -1,0 +1,30 @@
+%script{ :'data-template' => 'sidebar', :type => 'text/js-template' }
+  %nav#sitemap.sitemap
+    .header
+      %h3= link_to('Locus of Control', '#/')
+    .body.tree
+      <% collection.each(function(locus) { %>
+      %ul
+        %li.item.section
+          .label{ :'data-depth' => 1 }
+            %a.section{ :href => '#' }
+              %span <%= locus.escape('label') %>
+          %ul
+            %li.item.entries
+              .label{ :'data-depth' => 2 }
+                :plain
+                  <a href="<%= locus.entries_path() %>" class="entries">
+                    <em class="count"><%= locus.escape('count') %></em>
+                    <span>Entries</span>
+                  </a>  
+                
+            <% locus.buckets.each(function(bucket) { %>
+            %li.item.bucket
+              .label{ :'data-depth' => 2 }
+                :plain
+                  <a href="<%= bucket.entries_path() %>" class="bucket">
+                    <em class="count"><%= bucket.escape('count') %></em>
+                    <span><%= bucket.escape('label') %></span>
+                  </a>  
+            <% }); %>
+      <% }); %>

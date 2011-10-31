@@ -1,0 +1,34 @@
+.content
+  .header
+    %h1
+      %span.type Reporter
+      %strong Newsroom
+    %a#summation.option{:href => '#'} Σ
+  .body
+    #chart{ :style => "width: 100%; height: 400px; margin-bottom: 40px;" }
+
+= content_for :back do
+  .content
+    .header
+      %h1
+        %span.type Editing
+        %strong Overview
+    .body
+      %form#entry
+
+= content_for :sidebar do
+  %nav#sitemap.sitemap
+    .header
+      %nav#sitemap.sitemap
+        .header
+          %h3.current= link_to('Locus of Control', '#/')
+        .body.tree{ 'data-bind' => 'partial: loci#view[menu]'}
+
+= content_for :head do
+  = include_javascripts :common, :vertebrae, :reporter_lib, :reporter_templates, :reporter_vertebrae
+  
+  :javascript
+    $(function(){
+      Reporter.init({ loci: #{ @reports.to_json } });
+    });
+    

@@ -415,6 +415,9 @@ body {
               font-weight: normal;
             }
           }
+          a.option {
+            display: block; float: right;
+          }
         }
         .header::after, .actions::before {
           content: '.';
