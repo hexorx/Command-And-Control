@@ -43,7 +43,7 @@ class C2::Reporter::Bucket
   
   def refresh
     @series_cache = {}
-    started_at = self.scope.min(:created_at) || Time.now
+    started_at = self.scope.where(:created_at.ne => nil).min(:created_at) || Time.now
     self.scope.each do |item|
       date = (item.created_at || started_at).to_date
       @series.each do |key,value|

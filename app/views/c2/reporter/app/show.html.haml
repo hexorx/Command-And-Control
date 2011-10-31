@@ -25,7 +25,11 @@
         .body.tree{ 'data-bind' => 'partial: loci#view[menu]'}
 
 = content_for :head do
-  = include_javascripts :common, :vertebrae, :reporter_lib, :reporter_templates, :reporter_vertebrae
+  = javascript_include_tag 'c2/common'
+  = javascript_include_tag 'c2/vertebrae'
+  = javascript_include_tag 'c2/reporter_lib'
+  = javascript_include_tag 'c2/reporter_templates'
+  = javascript_include_tag 'c2/reporter_vertebrae'
   
   :javascript
     $(function(){
