@@ -18,7 +18,7 @@ namespace :c2 do
   
   def valid_scopes_for(document)
     valid_scopes = document.scopes.select do |method, scope|
-      valid = case conditions = scope.conditions
+      valid = case conditions = scope
       when Hash
         true
       when Proc
