@@ -10,7 +10,7 @@ class C2::Informant::FormElement
   
   embedded_in :locus, :class_name => 'C2::Informant::Locus'
   
-  scope :enabled, :where => { :enabled => true }
+  scope :enabled, where(:enabled => true)
   
   delegate :klass, :to => :'_parent'
   
